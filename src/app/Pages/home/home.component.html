@@ -1,0 +1,37 @@
+<div>
+  <div class="div-nav">
+    <div>
+      <h1 class="title">PERSONAJES DE RICK AND MORTY</h1>
+    </div>
+    <div>
+      <p class="pages">Page: {{pages}}</p>
+    </div>
+    <div class="botones"> 
+      <div *ngIf="next === null; else elseIf">
+        
+      </div>
+      <ng-template #elseIf>
+        <button (click)="info(next)" (click)="nextPages()" class="btn">Next</button>
+      </ng-template>
+
+      <div *ngIf="prev === null; else thenBlock">
+       
+      </div>
+      <ng-template #thenBlock>
+        <button (click)="info(prev)" (click)="prevPages()" class="btn">Prev</button>
+      </ng-template>
+    </div>
+    
+    
+  </div>
+
+  <div class="div-array">
+    <div *ngFor="let item of itemsArray">
+     <div class="div-personaje">
+      <img src={{item.image}} alt="img" class="img">
+      <h3 class="titulo-personaje">{{item.name}}</h3>
+      <p class="subtitulo-personaje">{{item.species}}</p>
+     </div>
+    </div>
+  </div>
+</div>
